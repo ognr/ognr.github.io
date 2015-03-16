@@ -6,7 +6,7 @@ gem "middleman", "~> 3.3.10"
 gem "middleman-blog", "~> 3.5.3"
 gem "middleman-livereload"
 gem "nokogiri"
-gem 'middleman-gh-pages'
+gem 'middleman-deploy', '~> 1.0'
 
 # For feed.xml.builder
 gem "builder", "~> 3.0"
