@@ -25,7 +25,7 @@
     <![endif]-->		
   </head>
   
-  <body class="<%= page_classes %>">
+  <body class="<%= page_classes %> container">
 		<div class="row">
 	    <header class="header">
 	      <hgroup class="text-center">
@@ -56,20 +56,34 @@
 			      </ul>
 	        </div>
 	      </section> <!-- /.post -->
-				
-	      <h2>Tags</h2>
-	      <ol>
-	        <% blog.tags.each do |tag, articles| %>
-	          <li><%= link_to "#{tag} (#{articles.size})", tag_path(tag) %></li>
-	        <% end %>
-	      </ol>
 
-	      <h2>By Year</h2>
-	      <ol>
-	        <% blog.articles.group_by {|a| a.date.year }.each do |year, articles| %>
-	          <li><%= link_to "#{year} (#{articles.size})", blog_year_path(year) %></li>
-	        <% end %>
-	      </ol>
+	      <section class="post">
+	        <header class="entry-header">
+	          <h4 class="entry-title">Tags</h4>
+	        </header>
+				
+	        <div class="entry-description">
+			      <ul>
+			        <% blog.tags.each do |tag, articles| %>
+			          <li><%= link_to "#{tag} (#{articles.size})", tag_path(tag) %></li>
+			        <% end %>
+			      </ul>
+	        </div>
+	      </section> <!-- /.post -->
+
+	      <section class="post">
+	        <header class="entry-header">
+	          <h4 class="entry-title">By Year</h4>
+	        </header>
+				
+	        <div class="entry-description">
+			      <ul>
+			        <% blog.articles.group_by {|a| a.date.year }.each do |year, articles| %>
+			          <li><%= link_to "#{year} (#{articles.size})", blog_year_path(year) %></li>
+			        <% end %>
+			      </ul>
+	        </div>
+	      </section> <!-- /.post -->
 			</aside>
 		</div> <!-- // row -->
 		<div class="row">
