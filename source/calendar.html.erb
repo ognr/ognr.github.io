@@ -1,7 +1,7 @@
 ---
 pageable: true
 ---
-<h1>Archive for
+<h1 class="content-head">Archive for
   <% case page_type
      when 'day' %>
     <%= Date.new(year, month, day).strftime('%b %e %Y') %>
@@ -20,11 +20,31 @@ pageable: true
   <% end %>
 <% end %>
 
-<ul>
-  <% page_articles.each_with_index do |article, i| %>
-    <li><%= link_to article.title, article %> <span><%= article.date.strftime('%b %e') %></span></li>
-  <% end %>
-</ul>
+<% page_articles.each_with_index do |article, i| %>
+    <section class="post">
+      <header class="entry-header">
+        <h2 class="entry-title"><%= link_to article.title, article %></h2>
+        <p class="entry-meta">
+          Posted on <a class="entry-date" href="#"><%= article.date.strftime('%b %e') %></a> | By <a class="entry-author" href="#"><%= article.data.author unless article.data.author.nil? %></a> 
+					| Tags 
+						<% article.data.tags.split(",").each do |tag| %>
+							<a class="label label-<%= cycle("danger", "success", "warning", "info", "primary") -%>" href="<%= tag_path(tag) %>">
+								<%= tag %>
+							</a>
+						<% end %>
+        </p>
+      </header>
+			
+      <div class="entry-description">
+        <p>
+					  <!-- use article.summary(250) if you have Nokogiri available to show just
+					       the first 250 characters -->
+					  <%= article.summary %>
+						<%= link_to 'Read more…', article %>							
+        </p>
+      </div>
+    </section> <!-- /.post -->
+<% end %>
 
 <% if paginate %>
   <% if next_page %>

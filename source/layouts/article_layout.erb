@@ -8,7 +8,7 @@
     <header class="entry-header">
           <h2 class="entry-title"><%= link_to current_article.title, current_article %></h2>
           <p class="entry-meta">
-            Posted on <a class="entry-date" href="#"><%= current_article.date.strftime('%b %e') %></a> | By <a class="entry-author" href="#"><%= current_article.data.author unless current_article.data.author.nil? %></a> 
+            Posted on <a class="entry-date" href="#"><%= current_article.date.strftime('%b %e') %></a>
 						| Tags 
 							<% current_article.data.tags.split(",").each do |tag| %>
 								<a class="label label-<%= cycle("danger", "success", "warning", "info", "primary") -%>" href="<%= tag_path(tag) %>">
@@ -20,6 +20,11 @@
     <div class="entry-description">
 			<%= yield %>
     </div>
+		<br />
+		
+		-----
+		<br />
+		<h4><%= current_article.data.author unless current_article.data.author.nil? %></h4>
   </section>
 	
 	<section>
