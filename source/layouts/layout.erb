@@ -26,19 +26,55 @@
   </head>
   
   <body class="<%= page_classes %>">
-    <div id="primary" class="col-sm-12">
-      <div class="content">
+		<div class="row">
+	    <header class="header">
+	      <hgroup class="text-center">
+					<div class="page-header">
+						<%= link_to image_tag("ognrlogo.png", width: "200px"), "/" %>
+					</div>				
+	      </hgroup>
+	    </header> <!-- /header -->
+		</div>
+		<div class="row">
+	    <div id="primary" class="col-sm-9">
+	      <div class="content">
+							<%= yield %>
+	      </div> <!-- // content -->
+			</div> <!-- /#primary -->
+			
+	    <aside class="col-sm-3">
+	      <section class="post">
+	        <header class="entry-header">
+	          <h4 class="entry-title">Recent Articles</h4>
+	        </header>
+				
+	        <div class="entry-description">
+			      <ul>
+			        <% blog.articles[0...10].each do |article| %>
+			          <li><%= link_to article.title, article %> <span><%= article.date.strftime('%b %e') %></span></li>
+			        <% end %>
+			      </ul>
+	        </div>
+	      </section> <!-- /.post -->
+				
+	      <h2>Tags</h2>
+	      <ol>
+	        <% blog.tags.each do |tag, articles| %>
+	          <li><%= link_to "#{tag} (#{articles.size})", tag_path(tag) %></li>
+	        <% end %>
+	      </ol>
 
-        <header class="header">
-          <hgroup class="text-center">
-            <h1 class="site-title">
-							<%= link_to image_tag("ognrlogo.png", width: "200px") %>
-            </h1>
-          </hgroup>
-        </header> <!-- /header -->
-						<%= yield %>
-						<%= partial "footer" %>
-      </div>
-    </div> <!-- /#primary -->
+	      <h2>By Year</h2>
+	      <ol>
+	        <% blog.articles.group_by {|a| a.date.year }.each do |year, articles| %>
+	          <li><%= link_to "#{year} (#{articles.size})", blog_year_path(year) %></li>
+	        <% end %>
+	      </ol>
+			</aside>
+		</div> <!-- // row -->
+		<div class="row">
+			<%= partial "footer" %>		
+		</div>
+						
 	</body>
 </html>
