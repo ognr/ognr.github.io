@@ -209,6 +209,7 @@ end
 activate :deploy do |deploy|
   deploy.method = :git
   # Optional Settings
+  deploy.build_before = true # default: false
   deploy.remote   = 'gh-pages' # remote name or git url, default: origin
   # deploy.branch   = 'custom-branch' # default: gh-pages
   # deploy.strategy = :submodule      # commit strategy: can be :force_push or :submodule, default: :force_push
