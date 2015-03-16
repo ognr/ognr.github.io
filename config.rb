@@ -72,11 +72,117 @@ page "/feed.xml", layout: false
 # activate :livereload
 
 # Methods defined in the helpers block are available in templates
-# helpers do
-#   def some_helper
-#     "Helping"
-#   end
-# end
+helpers do
+  
+  # All of this cycle method is to add the ActionView cycle method
+  
+  # See https://github.com/rails/rails/blob/0e50b7bdf4c0f789db37e22dc45c52b082f674b4/actionview/lib/action_view/helpers/text_helper.rb#L298 for more info on where this comes from
+  
+  def cycle(first_value, *values)
+    options = values.extract_options!
+    name = options.fetch(:name, 'default')
+
+    values.unshift(*first_value)
+
+    cycle = get_cycle(name)
+    unless cycle && cycle.values == values
+      cycle = set_cycle(name, Cycle.new(*values))
+    end
+    cycle.to_s
+  end
+
+  def current_cycle(name = "default")
+    cycle = get_cycle(name)
+    cycle.current_value if cycle
+  end
+  
+  def reset_cycle(name = "default")
+    cycle = get_cycle(name)
+    cycle.reset if cycle
+  end
+
+  class Cycle #:nodoc:
+    attr_reader :values
+
+    def initialize(first_value, *values)
+      @values = values.unshift(first_value)
+      reset
+    end
+
+    def reset
+      @index = 0
+    end
+
+    def current_value
+      @values[previous_index].to_s
+    end
+
+    def to_s
+      value = @values[@index].to_s
+      @index = next_index
+      return value
+    end
+
+    private
+
+    def next_index
+      step_index(1)
+    end
+
+    def previous_index
+      step_index(-1)
+    end
+
+    def step_index(n)
+      (@index + n) % @values.size
+    end
+  end
+  
+  private
+    # The cycle helpers need to store the cycles in a place that is
+    # guaranteed to be reset every time a page is rendered, so it
+    # uses an instance variable of ActionView::Base.
+    def get_cycle(name)
+      @_cycles = Hash.new unless defined?(@_cycles)
+      return @_cycles[name]
+    end
+
+    def set_cycle(name, cycle_object)
+      @_cycles = Hash.new unless defined?(@_cycles)
+      @_cycles[name] = cycle_object
+    end
+
+    def split_paragraphs(text)
+      return [] if text.blank?
+
+      text.to_str.gsub(/\r\n?/, "\n").split(/\n\n+/).map! do |t|
+        t.gsub!(/([^\n]\n)(?=[^\n])/, '\1<br />') || t
+      end
+    end
+
+    def cut_excerpt_part(part_position, part, separator, options)
+      return "", "" unless part
+
+      radius   = options.fetch(:radius, 100)
+      omission = options.fetch(:omission, "...")
+
+      part = part.split(separator)
+      part.delete("")
+      affix = part.size > radius ? omission : ""
+
+      part = if part_position == :first
+        drop_index = [part.length - radius, 0].max
+        part.drop(drop_index)
+      else
+        part.first(radius)
+      end
+
+      return affix, part.join(separator)
+    end
+    
+    # End Cycle Method
+    
+end
 
 set :css_dir, 'stylesheets'
 

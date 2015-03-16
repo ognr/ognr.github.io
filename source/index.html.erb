@@ -18,17 +18,19 @@ per_page: 10
             Posted on <a class="entry-date" href="date.html"><%= article.date.strftime('%b %e') %></a> | By <a class="entry-author" href="author.html"><%= article.data.author unless article.data.author.nil? %></a> 
 						| Tags 
 							<% article.data.tags.split(",").each do |tag| %>
-						<a class="label label-info" href="tag.html">
-							<%= tag %>
-						</a>
+								<a class="label label-<%= cycle("danger", "success", "warning", "info", "primary") -%>" href="<%= tag_path(tag) %>">
+									<%= tag %>
+								</a>
 							<% end %>
           </p>
         </header>
+				
         <div class="entry-description">
           <p>
 						  <!-- use article.summary(250) if you have Nokogiri available to show just
 						       the first 250 characters -->
 						  <%= article.summary %>
+							<%= link_to 'Read more…', article %>							
           </p>
         </div>
       </section> <!-- /.post -->
