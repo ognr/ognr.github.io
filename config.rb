@@ -102,5 +102,8 @@ configure :build do
   # set :http_prefix, "/Content/images/"
 end
 
+#Activate LiveReload
+activate :livereload
+
 # Pretty URLs
 activate :directory_indexes

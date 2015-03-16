@@ -1,5 +1,6 @@
 ---
 title: Example Article
+author: Marc Ramsay
 date: 2012-01-01
 tags: example
 ---
