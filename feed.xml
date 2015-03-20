@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Blog Name</title>
-  <subtitle>Blog subtitle</subtitle>
-  <id>http://blog.url.com/</id>
-  <link href="http://blog.url.com/"/>
-  <link href="http://blog.url.com/feed.xml" rel="self"/>
+  <title>The Blog of On The Ground News Reports (OGNR)</title>
+  <subtitle>A Behind The Scenes Look At Breaking News</subtitle>
+  <id>http://blog.og.nr/</id>
+  <link href="http://blog.og.nr/"/>
+  <link href="http://blog.og.nr/feed.xml" rel="self"/>
   <updated>2015-03-19T05:54:00-05:00</updated>
   <author>
-    <name>Blog Author</name>
+    <name>On The Ground News Reports - OGNR</name>
   </author>
   <entry>
     <title>The biggest stories are hardest to predict</title>
-    <link rel="alternate" href="http://blog.url.com/2015/03/19/the-biggest-stories-are-hardest-to-predict/"/>
-    <id>http://blog.url.com/2015/03/19/the-biggest-stories-are-hardest-to-predict/</id>
+    <link rel="alternate" href="http://blog.og.nr/2015/03/19/the-biggest-stories-are-hardest-to-predict/"/>
+    <id>http://blog.og.nr/2015/03/19/the-biggest-stories-are-hardest-to-predict/</id>
     <published>2015-03-19T05:54:00-05:00</published>
     <updated>2015-03-19T06:54:38-05:00</updated>
     <author>
-      <name>Article Author</name>
+      <name>Marc Ramsay</name>
     </author>
+    <summary type="html">&lt;p&gt;People sometimes assume that we sensationalise news reports, or, that we have some knack for predicting what news will be popular and post those reports at just the right time.  Every news agency does that, right? We don’t.  We are pretty serious about the mandate to be objective, to avoid speculation and also to be first, fast and accurate  (See...&lt;/p&gt;</summary>
     <content type="html">&lt;p&gt;People sometimes assume that we sensationalise news reports, or, that we have some knack for predicting what news will be popular and post those reports at just the right time.  Every news agency does that, right? We don’t.  We are pretty serious about the mandate to be objective, to avoid speculation and also to be first, fast and accurate  (See the OG.NR Editor’s Guide). We also want to disrupt the habit of traditional news editors who impose their prediction of what news will matter the most on everyone.  OG.NR should be a place where people get the news they want to see, not the news the Editor’s want them to see.  Lastly (and most obviously) we don’t actually make news – people do, we only publish it as it comes to us.  You cannot be first and fast if you save news for “just the right time.”&lt;/p&gt;
 
 &lt;p&gt;But that doesn’t mean that we don’t observe certain trends.  We learned the hard way that reports on the Vybz Kartel murder trial had the propensity to (and did) crash our servers the second they were posted.  And of course we watch the statistics when we post certain reports that seem exciting to us (the Real Time Visitors tab on Google Analytics can be as exciting as watching a football match).&lt;/p&gt;
@@ -77,13 +78,16 @@ Jamaica Gleaner February 23 @ Unknown time:
   </entry>
   <entry>
     <title>Hello-World</title>
-    <link rel="alternate" href="http://blog.url.com/2015/03/16/hello-world/"/>
-    <id>http://blog.url.com/2015/03/16/hello-world/</id>
+    <link rel="alternate" href="http://blog.og.nr/2015/03/16/hello-world/"/>
+    <id>http://blog.og.nr/2015/03/16/hello-world/</id>
     <published>2015-03-16T02:07:00-05:00</published>
     <updated>2015-03-16T09:14:11-05:00</updated>
     <author>
-      <name>Article Author</name>
+      <name>Marc Ramsay</name>
     </author>
+    <summary type="html">&lt;p&gt;People often ask "What is &lt;a href="http://og.nr"&gt;OG.NR&lt;/a&gt;?"  We think this is a great question to get, especially when people add, "We know you have fast, breaking news, but what are you really?"  In the past we toyed around with words like "website" or "platform" or even "community." These are all great but now we focus less on what we are "are" and more on what we "do."&lt;/p&gt;
+
+&lt;p&gt;</summary>
     <content type="html">&lt;p&gt;People often ask "What is &lt;a href="http://og.nr"&gt;OG.NR&lt;/a&gt;?"  We think this is a great question to get, especially when people add, "We know you have fast, breaking news, but what are you really?"  In the past we toyed around with words like "website" or "platform" or even "community." These are all great but now we focus less on what we are "are" and more on what we "do."&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;
