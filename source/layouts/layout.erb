@@ -13,7 +13,7 @@
     <!-- Use title if it's in the page YAML frontmatter -->
     <title><%= current_page.data.title || "The Blog of OGNR - On The Ground News Report" %></title>
     
-    <%= stylesheet_link_tag "all", "bootstrap-social", "bootstrap-theme.min", "bootstrap.min", "font-awesome.min", "main" %>
+    <%= stylesheet_link_tag "all", "font-awesome.min", "bootstrap-social", "bootstrap-theme.min", "bootstrap.min", "main"%>
     <!-- Fonts -->
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C400italic%2C700" rel="stylesheet">
     <link href="http://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
@@ -30,11 +30,14 @@
 	    <header class="header">
 	      <hgroup class="text-center">
 					<div class="page-header">
-						<%= link_to image_tag("ognrlogo.png", width: "200px"), "/" %>
-					</div>				
+						<!-- <%#= link_to image_tag("ognrlogo.png", width: "200px"), "/" %> -->
+						<%= link_to image_tag("ognr-blog-logo.png", width: "200px"), "/" %>
+					</div>
 	      </hgroup>
 	    </header> <!-- /header -->
 		</div>
+		<br />				
+		<br />						
 		<div class="row">
 	    <div id="primary">
 				<div class="col-sm-9">
