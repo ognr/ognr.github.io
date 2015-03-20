@@ -1,6 +1,7 @@
 ---
 title: The biggest stories are hardest to predict
 author: Marc Ramsay
+header_image: "/images/march-2015/biggest-stories-header-image-2.jpg"
 date: 2015-03-19 05:54 PET
 tags: analysis, analytics, news business, behind the scenes
 ---
